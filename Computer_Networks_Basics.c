@@ -40,3 +40,10 @@ struct sockaddr_in {
 // AF_INET6: IPv6 Internet Protocols
 // AF_NETLINK: Kernel user interface device
 // AF_PACKET: Low Level Packet Interface 
+
+// Byte Order: When a value occupies more than one byte (such as an int or short), the bytes can be arranged in memory in different orders. This arrangement is called byte order.
+// In Little Endian, the Least Significant Byte (LSB) is stored at the lowest memory address.
+// In Big Endian, the Most Significant Byte (MSB) is stored at the lowest memory address.
+// Host Byte Order: The host byte order is the byte order used internally by the computer. So different computers may have different host byte orders. May be Little or Big Endian (depends on system architecture). Used by applications internally.
+// Network Byte Order: The network byte order is the standard byte order used for transmitting data over a network. Network byte order is always Big Endian. This standard ensures that all computers interpret transmitted data in the same way, regardless of their internal architecture. Used when sending and receiving data.
+
