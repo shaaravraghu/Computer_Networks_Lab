@@ -97,3 +97,16 @@ inet_aton("127.0.0.1", &server.sin_addr);
 //                       │                                │
 //                       ▼                                ▼
 //                    close()                         close()
+
+// socket() system call: The socket() system call creates a new socket and returns a socket descriptor (file descriptor) that is used for all subsequent communication. It is the first function called in both client and server socket programming.
+int socket(int domain, int type, int protocol);
+// The domain specifies the address family or the type of addresses the socket will use. (previously mentioned)
+// The type specifies how communication takes place. It speqaks about the semantics of communication, or type of service that is desired.
+SOCK_STREAM // stream socket
+SOCK_DGRAM // datagram socket
+SOCK_RAW // raw socket
+SOCK_SEQPACKET // sequenced packet socket
+SOCK_RDM // reliably delivered message packet
+// The protocol specifies the exact communication protocol to use. Since we have only one sort of protocol for each kind of socket, it doesn't matter if we define it or not (list as 0). Return value {success >= 0; failure: -1}
+IPPROTO_TCP // SOCK_STREAM (TCP) 
+IPPROTO_UDP // SOCK_DGRAM (UDP)
