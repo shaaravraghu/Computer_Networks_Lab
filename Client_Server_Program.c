@@ -8,6 +8,7 @@
 #define MAX_LINE 256 // Maximum number of characters that can be read at a time
 
 int main(int argc, char *argv[]){ // Main function receives command-line arguments
+
   struct hostent *hp; // Stores information about the server host
   struct sockaddr_in sin; // Stores the server's IP address and port number
   char *host; // Stores the server hostname
@@ -26,4 +27,18 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   // Display the correct format for running the client program
   fprintf(stderr, "Usage: simplex-talk host\n");
   exit(1); // Terminate the program because the argument is missing
+  }
+
+  /*
+  * Convert the server hostname into its corresponding IP address.
+  */
+
+  hp = gethostbyname(host); // Obtain host information using the hostname
+  if (hp == NULL) // Check whether hostname resolution failed
+  {
+  // Display an error message when the hostname cannot be found
+  fprintf(stderr,
+  "simplex-talk: unknown host: %s\n",
+  host);
+  exit(1); // Terminate the program
   }
