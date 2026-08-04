@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   /*
   * Build and initialize the server-address structure.
   */
+
   bzero((char *)&sin, sizeof(sin)); // Set all bytes of the address structure to zero
   sin.sin_family = AF_INET; // Specify that an IPv4 address is being used
 
@@ -52,7 +53,16 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   * Copy the server IP address obtained from gethostbyname()
   * into the sockaddr_in structure.
   */
+
   bcopy( hp->h_addr, // Source: resolved server IP address
   (char *)&sin.sin_addr, // Destination: IP-address field of sin
   hp->h_length // Number of address bytes to copy
   );
+
+  /*
+  * Store the server port number.
+  * htons() converts the port from host byte order
+  * to network byte order.
+  */
+
+  sin.sin_port = htons(SERVER_PORT);
