@@ -64,3 +64,36 @@ server.sin_family = AF_INET;
 server.sin_port = htons(8080);
 inet_aton("127.0.0.1", &server.sin_addr);
 
+// Sequence of System Calls
+//                    SERVER                           CLIENT
+//                    ------                           ------
+//
+//                    socket()                         socket()
+//                       │                                │
+//                       ▼                                ▼
+//                     bind()                         connect()
+//                       │                                │
+//                       ▼                                │
+//                    listen()                            │
+//                       │                                │
+//                       ▼                                │
+//                   accept()                             |
+//                  (block until connection from client)  |
+//                  (connection established)              |
+//                       <--------------------------------┘
+//                       |                                |
+//                       │                                |
+//                       ▼          data (request)        ▼
+//                     read()  <----------------------- write()
+//                   (receive request)               (send request)
+//                       |                                |
+//                       │                                |
+//                 Process Request                        |
+//                       │                                |
+//                       ▼          data (provide)        ▼
+//                     write() -----------------------> read()
+//                    (send reply)                  (receive reply)
+//
+//                       │                                │
+//                       ▼                                ▼
+//                    close()                         close()
