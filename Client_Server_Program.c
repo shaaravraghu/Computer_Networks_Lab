@@ -14,3 +14,16 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   char buf[MAX_LINE]; // Buffer used to store text entered by the user
   int s; // Socket descriptor
   int len; // Number of bytes to be sent
+
+  /*
+  * Check whether the user has supplied exactly one argument:
+  * the hostname or IP address of the server.
+  */
+  
+  if (argc == 2){
+  host = argv[1]; // Store the server hostname given on the command line
+  } else {
+  // Display the correct format for running the client program
+  fprintf(stderr, "Usage: simplex-talk host\n");
+  exit(1); // Terminate the program because the argument is missing
+  }
