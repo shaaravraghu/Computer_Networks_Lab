@@ -66,3 +66,16 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   */
 
   sin.sin_port = htons(SERVER_PORT);
+
+  /*
+  * Create a TCP socket.
+  */
+  s = socket(
+  PF_INET, // IPv4 protocol family
+  SOCK_STREAM, // Stream socket, which means TCP
+  0 // Use the default protocol for TCP
+  );
+  if (s < 0){ // Check whether socket creation failed
+  perror("simplex-talk: socket"); // Display the system error message
+  exit(1); // Terminate the program
+  }
