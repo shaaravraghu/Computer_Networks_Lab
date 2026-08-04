@@ -79,3 +79,46 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   perror("simplex-talk: socket"); // Display the system error message
   exit(1); // Terminate the program
   }
+
+  /*
+  * Connect the client socket to the server.
+  */
+  if (connect(
+  s, // Client socket descriptor
+  (struct sockaddr *)&sin, // Server address
+  sizeof(sin) // Size of the server-address structure
+  ) < 0)
+  {
+  perror("simplex-talk: connect"); // Display the connection error
+  close(s); // Close the socket before terminating
+  exit(1); // Terminate the program
+  }
+
+  /*
+  * Main communication loop:
+  * read lines from the keyboard and send them to the server.
+  */
+  while (fgets(buf, sizeof(buf), stdin) != NULL){
+    /*
+    * Ensure that the last buffer position contains
+    * the string-termination character.
+    */
+    buf[MAX_LINE - 1] = '\0';
+    /*
+    * Calculate the length of the string.
+    * The additional 1 includes the terminating '\0' character.
+    */
+    len = strlen(buf) + 1;
+    /*
+    * Send the entered text to the server.
+    */
+    send(
+    s, // Connected socket descriptor
+    buf, // Address of the text buffer
+    len, // Number of bytes to send
+    0 // No special sending options
+    );
+    }
+  close(s); // Close the socket when input finishes
+  return 0; // Indicate successful program completion
+}
