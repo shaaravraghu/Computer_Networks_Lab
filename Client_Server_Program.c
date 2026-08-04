@@ -6,3 +6,11 @@
 
 #define SERVER_PORT 5432 // Port number on which the server is running
 #define MAX_LINE 256 // Maximum number of characters that can be read at a time
+
+int main(int argc, char *argv[]){ // Main function receives command-line arguments
+  struct hostent *hp; // Stores information about the server host
+  struct sockaddr_in sin; // Stores the server's IP address and port number
+  char *host; // Stores the server hostname
+  char buf[MAX_LINE]; // Buffer used to store text entered by the user
+  int s; // Socket descriptor
+  int len; // Number of bytes to be sent
