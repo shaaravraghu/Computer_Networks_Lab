@@ -1,3 +1,5 @@
+// CLIENT CODE
+
 #include <stdio.h> // Provides printf(), fprintf(), fgets(), perror(), stdin and stderr
 #include <sys/types.h> // Defines system data types used in socket programming
 #include <sys/socket.h> // Provides socket(), connect(), send() and socket constants
@@ -34,11 +36,23 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   */
 
   hp = gethostbyname(host); // Obtain host information using the hostname
-  if (hp == NULL) // Check whether hostname resolution failed
-  {
+  if (hp == NULL){ // Check whether hostname resolution failed
   // Display an error message when the hostname cannot be found
-  fprintf(stderr,
-  "simplex-talk: unknown host: %s\n",
-  host);
+  fprintf(stderr, "simplex-talk: unknown host: %s\n", host);
   exit(1); // Terminate the program
   }
+
+  /*
+  * Build and initialize the server-address structure.
+  */
+  bzero((char *)&sin, sizeof(sin)); // Set all bytes of the address structure to zero
+  sin.sin_family = AF_INET; // Specify that an IPv4 address is being used
+
+  /*
+  * Copy the server IP address obtained from gethostbyname()
+  * into the sockaddr_in structure.
+  */
+  bcopy( hp->h_addr, // Source: resolved server IP address
+  (char *)&sin.sin_addr, // Destination: IP-address field of sin
+  hp->h_length // Number of address bytes to copy
+  );
