@@ -46,4 +46,21 @@ struct sockaddr_in {
 // In Big Endian, the Most Significant Byte (MSB) is stored at the lowest memory address.
 // Host Byte Order: The host byte order is the byte order used internally by the computer. So different computers may have different host byte orders. May be Little or Big Endian (depends on system architecture). Used by applications internally.
 // Network Byte Order: The network byte order is the standard byte order used for transmitting data over a network. Network byte order is always Big Endian. This standard ensures that all computers interpret transmitted data in the same way, regardless of their internal architecture. Used when sending and receiving data.
+// Common Conversion Functions:
+htons() // Host to Network Short (16-bit) 
+htonl() // Host to Network Long (32-bit)  
+ntohs() // Network to Host Short          
+ntohl() // Network to Host Long           
+
+// IP Address: An IP (Internet Protocol) address is a unique numerical identifier assigned to every device connected to a network. It is used to identify the source and destination of data packets.
+// IPv4 is a 32 bit integer. Since its harder to remember and not convenient; it is stored as 4 decimal numbers seperated as dots (a.b.c.d); with each decimal number equal to a byte (8 bits); a is MSB.
+inet_aton() // converts an IPv4 address from human-readable dotted-decimal (string) notation into binary network format. Return Value {1 → Success, 0 → Invalid IP address}. Alternative inet_addr() and inet_pnot()
+int inet_aton(const char *cp, struct in_addr *inp);
+
+// initialise sockaddr_in
+struct sockaddr_in server;
+memset(&server, 0, sizeof(server));
+server.sin_family = AF_INET;
+server.sin_port = htons(8080);
+inet_aton("127.0.0.1", &server.sin_addr);
 
