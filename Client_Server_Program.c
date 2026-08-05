@@ -220,3 +220,24 @@ int main(){
   */
 
   listen(s, MAX_PENDING);  // Server waits for incoming client connection requests; MAX_PENDING = maximum number of waiting clients
+
+  /*
+  * Main server loop
+  * Wait for client connection,
+  * receive data and display it
+  */
+
+  while (1){
+  len = sizeof(sin);// Store size of client address structure
+  
+  /*
+  * Accept a client connection
+  */
+  
+  if ((new_s = accept(s, (struct sockaddr *)&sin, &len)) < 0) {
+    // accept() creates a new socket for communication
+    // with the connected client
+    
+    perror("simplex-talk: accept"); // Display accept error
+    exit(1);  // Terminate Program
+  }
