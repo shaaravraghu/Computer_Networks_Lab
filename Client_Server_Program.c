@@ -187,3 +187,18 @@ int main(){
   sin.sin_family = AF_INET;  // Specify IPv4 address family
   sin.sin_addr.s_addr = INADDR_ANY;  // Accept connections from any available network interface
   sin.sin_port = htons(SERVER_PORT);   // Assign port number 5432 to the server; htons() converts host byte order to network byte order
+  
+  /*
+  * Create passive TCP socket
+  */
+
+  if ((s = socket(PF_INET, SOCK_STREAM, 0)) < 0){
+    // Create TCP socket
+    // PF_INET : IPv4 protocol family
+    // SOCK_STREAM : TCP socket
+    // 0 : Default TCP protocol
+    perror("simplex-talk: socket");
+    // Display socket creation error
+    exit(1);
+    // Terminate program if socket creation fails
+  }
