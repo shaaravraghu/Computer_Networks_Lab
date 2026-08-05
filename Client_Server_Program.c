@@ -241,3 +241,17 @@ int main(){
     perror("simplex-talk: accept"); // Display accept error
     exit(1);  // Terminate Program
   }
+  
+  /*
+  * Receive data from client
+  */
+
+  while (len = recv(new_s, buf, sizeof(buf), 0)){
+    // recv() receives data sent by client
+    // new_s : connected client socket
+    // buf : buffer to store received data
+    // sizeof(buf): maximum bytes received
+    // 0 : no special options
+    
+    fputs(buf, stdout);  // Display received message on server screen
+  }
