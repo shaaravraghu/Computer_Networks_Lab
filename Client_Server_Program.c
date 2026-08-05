@@ -122,3 +122,41 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
   close(s); // Close the socket when input finishes
   return 0; // Indicate successful program completion
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SERVER CODE
+
+/*
+* Simple TCP Server Program
+*
+* This program creates a TCP server that:
+* 1. Creates a socket
+* 2. Assigns a port number
+* 3. Waits for client connection
+* 4. Receives messages from client
+* 5. Displays received messages
+*/
