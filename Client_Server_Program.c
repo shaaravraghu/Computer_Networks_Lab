@@ -226,32 +226,40 @@ int main(){
   * Wait for client connection,
   * receive data and display it
   */
-
+  
   while (1){
-  len = sizeof(sin);// Store size of client address structure
-  
-  /*
-  * Accept a client connection
-  */
-  
-  if ((new_s = accept(s, (struct sockaddr *)&sin, &len)) < 0) {
-    // accept() creates a new socket for communication
-    // with the connected client
+    len = sizeof(sin);// Store size of client address structure
     
-    perror("simplex-talk: accept"); // Display accept error
-    exit(1);  // Terminate Program
-  }
-  
-  /*
-  * Receive data from client
-  */
-
-  while (len = recv(new_s, buf, sizeof(buf), 0)){
-    // recv() receives data sent by client
-    // new_s : connected client socket
-    // buf : buffer to store received data
-    // sizeof(buf): maximum bytes received
-    // 0 : no special options
+    /*
+    * Accept a client connection
+    */
     
-    fputs(buf, stdout);  // Display received message on server screen
+    if ((new_s = accept(s, (struct sockaddr *)&sin, &len)) < 0) {
+      // accept() creates a new socket for communication
+      // with the connected client
+      
+      perror("simplex-talk: accept"); // Display accept error
+      exit(1);  // Terminate Program
+    }
+    
+    /*
+    * Receive data from client
+    */
+  
+    while (len = recv(new_s, buf, sizeof(buf), 0)){
+      // recv() receives data sent by client
+      // new_s : connected client socket
+      // buf : buffer to store received data
+      // sizeof(buf): maximum bytes received
+      // 0 : no special options
+      
+      fputs(buf, stdout);  // Display received message on server screen
+    }
+      
+    /*
+    * Close client connection
+    */
+    close(new_s);
+    // Close the client socket after communication ends
   }
+}
