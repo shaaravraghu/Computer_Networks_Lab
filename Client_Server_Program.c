@@ -170,3 +170,11 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
 #define SERVER_PORT 5432 // Port number on which server will listen
 #define MAX_PENDING 5 // Maximum number of pending client connections
 #define MAX_LINE 256 // Maximum
+
+int main(){
+
+  struct sockaddr_in sin; // Structure to store server IP address and port details
+  char buf[MAX_LINE]; // Buffer to store received message from client
+  int len; // Stores length of received data
+  int s; // Server socket descriptor
+  int new_s;
