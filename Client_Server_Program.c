@@ -166,3 +166,7 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
 #include <sys/socket.h> // Provides socket(), bind(), listen(), accept(), recv()
 #include <netinet/in.h> // Provides sockaddr_in structure and Internet address constants
 #include <netdb.h> // Provides network database functions
+
+#define SERVER_PORT 5432 // Port number on which server will listen
+#define MAX_PENDING 5 // Maximum number of pending client connections
+#define MAX_LINE 256 // Maximum
