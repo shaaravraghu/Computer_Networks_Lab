@@ -178,3 +178,12 @@ int main(){
   int len; // Stores length of received data
   int s; // Server socket descriptor
   int new_s;
+  
+  /*
+  * Build address data structure
+  */
+
+  bzero((char *)&sin, sizeof(sin));  // Initialize the socket address structure with zeros
+  sin.sin_family = AF_INET;  // Specify IPv4 address family
+  sin.sin_addr.s_addr = INADDR_ANY;  // Accept connections from any available network interface
+  sin.sin_port = htons(SERVER_PORT);   // Assign port number 5432 to the server; htons() converts host byte order to network byte order
