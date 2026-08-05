@@ -160,3 +160,9 @@ int main(int argc, char *argv[]){ // Main function receives command-line argumen
 * 4. Receives messages from client
 * 5. Displays received messages
 */
+
+#include <stdio.h> // Provides printf(), fprintf(), perror(), stdout
+#include <sys/types.h> // Defines system data types used in socket programming
+#include <sys/socket.h> // Provides socket(), bind(), listen(), accept(), recv()
+#include <netinet/in.h> // Provides sockaddr_in structure and Internet address constants
+#include <netdb.h> // Provides network database functions
