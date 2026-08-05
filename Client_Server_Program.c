@@ -214,3 +214,9 @@ int main(){
     exit(1);
     // Terminate program if binding fails
   }
+  
+  /*
+  * Put server socket into listening mode
+  */
+
+  listen(s, MAX_PENDING);  // Server waits for incoming client connection requests; MAX_PENDING = maximum number of waiting clients
