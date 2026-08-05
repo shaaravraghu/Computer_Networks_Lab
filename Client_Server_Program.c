@@ -202,3 +202,15 @@ int main(){
     exit(1);
     // Terminate program if socket creation fails
   }
+  
+  /*
+  * Bind socket to server address and port
+  */
+
+  if ((bind(s, (struct sockaddr *)&sin, sizeof(sin))) < 0){
+    // Associate socket with IP address and port number
+    perror("simplex-talk: bind");
+    // Display binding error
+    exit(1);
+    // Terminate program if binding fails
+  }
