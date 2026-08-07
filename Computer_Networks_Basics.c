@@ -110,10 +110,3 @@ SOCK_RDM // reliably delivered message packet
 // The protocol specifies the exact communication protocol to use. Since we have only one sort of protocol for each kind of socket, it doesn't matter if we define it or not (list as 0). Return value {success >= 0; failure: -1}
 IPPROTO_TCP // SOCK_STREAM (TCP) 
 IPPROTO_UDP // SOCK_DGRAM (UDP)
-
-
-
-
-
-
-
