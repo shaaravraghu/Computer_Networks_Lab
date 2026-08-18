@@ -171,149 +171,151 @@ int main(int argc, char *argv[]) // Main function receives command-line argument
 // SERVER CODE
 
 /*
-* Simple TCP Server Program
-*
-* This program creates a TCP server that:
-* 1. Creates a socket
-* 2. Assigns a port number
-* 3. Waits for client connection
-* 4. Receives messages from client
-* 5. Displays received messages
-*/
+ * Simple TCP Server Program
+ *
+ * This program creates a TCP server that:
+ * 1. Creates a socket
+ * 2. Assigns a port number
+ * 3. Waits for client connection
+ * 4. Receives messages from client
+ * 5. Displays received messages
+ */
 
-#include <stdio.h> // Provides printf(), fprintf(), perror(), stdout
-#include <sys/types.h> // Defines system data types used in socket programming
-#include <sys/socket.h> // Provides socket(), bind(), listen(), accept(), recv()
-#include <netinet/in.h> // Provides sockaddr_in structure and Internet address constants
-#include <netdb.h> // Provides network database functions
+#include <stdio.h>          // Provides printf(), fprintf(), perror(), stdout
+#include <sys/types.h>      // Defines system data types used in socket programming
+#include <sys/socket.h>     // Provides socket(), bind(), listen(), accept(), recv()
+#include <netinet/in.h>     // Provides sockaddr_in structure and Internet address constants
+#include <netdb.h>          // Provides network database functions
 
-#define SERVER_PORT 5432 // Port number on which server will listen
-#define MAX_PENDING 5 // Maximum number of pending client connections
-#define MAX_LINE 256 // Maximum
+#define SERVER_PORT 5432    // Port number on which server will listen
+#define MAX_PENDING 5       // Maximum number of pending client connections
+#define MAX_LINE 256        // Maximum size of message buffer
 
-int main(){
+int main()
+{
+    struct sockaddr_in sin; // Structure to store server IP address and port details
+    char buf[MAX_LINE];     // Buffer to store received message from client
+    int len;                // Stores length of received data
+    int s;                  // Server socket descriptor
+    int new_s;              // New socket descriptor for connected client
 
-  struct sockaddr_in sin; // Structure to store server IP address and port details
-  char buf[MAX_LINE]; // Buffer to store received message from client
-  int len; // Stores length of received data
-  int s; // Server socket descriptor
-  int new_s;
-  
-  /*
-  * Build address data structure
-  */
-
-  bzero((char *)&sin, sizeof(sin));  // Initialize the socket address structure with zeros
-  sin.sin_family = AF_INET;  // Specify IPv4 address family
-  sin.sin_addr.s_addr = INADDR_ANY;  // Accept connections from any available network interface
-  sin.sin_port = htons(SERVER_PORT);   // Assign port number 5432 to the server; htons() converts host byte order to network byte order
-  
-  /*
-  * Create passive TCP socket
-  */
-
-  if ((s = socket(PF_INET, SOCK_STREAM, 0)) < 0){
-    // Create TCP socket
-    // PF_INET : IPv4 protocol family
-    // SOCK_STREAM : TCP socket
-    // 0 : Default TCP protocol
-    perror("simplex-talk: socket");
-    // Display socket creation error
-    exit(1);
-    // Terminate program if socket creation fails
-  }
-  
-  /*
-  * Bind socket to server address and port
-  */
-
-  if ((bind(s, (struct sockaddr *)&sin, sizeof(sin))) < 0){
-    // Associate socket with IP address and port number
-    perror("simplex-talk: bind");
-    // Display binding error
-    exit(1);
-    // Terminate program if binding fails
-  }
-  
-  /*
-  * Put server socket into listening mode
-  */
-
-  listen(s, MAX_PENDING);  // Server waits for incoming client connection requests; MAX_PENDING = maximum number of waiting clients
-
-  /*
-  * Main server loop
-  * Wait for client connection,
-  * receive data and display it
-  */
-  
-  while (1){
-    len = sizeof(sin);// Store size of client address structure
-    
     /*
-    * Accept a client connection
-    */
-    
-    if ((new_s = accept(s, (struct sockaddr *)&sin, &len)) < 0) {
-      // accept() creates a new socket for communication
-      // with the connected client
-      
-      perror("simplex-talk: accept"); // Display accept error
-      exit(1);  // Terminate Program
+     * Build address data structure
+     */
+
+    bzero((char *)&sin, sizeof(sin));
+
+    // Initialize the socket address structure with zeros
+    sin.sin_family = AF_INET;
+
+    // Specify IPv4 address family
+    sin.sin_addr.s_addr = INADDR_ANY;
+
+    // Accept connections from any available network interface
+    sin.sin_port = htons(SERVER_PORT);
+
+    // Assign port number 5432 to the server
+    // htons() converts host byte order to network byte order
+
+    /*
+     * Create passive TCP socket
+     */
+
+    if ((s = socket(PF_INET, SOCK_STREAM, 0)) < 0)
+    {
+        // Create TCP socket
+        // PF_INET : IPv4 protocol family
+        // SOCK_STREAM : TCP socket
+        // 0 : Default TCP protocol
+
+        perror("simplex-talk: socket");
+
+        // Display socket creation error
+        exit(1);
+
+        // Terminate program if socket creation fails
     }
-    
+
     /*
-    * Receive data from client
-    */
-  
-    while (len = recv(new_s, buf, sizeof(buf), 0)){
-      // recv() receives data sent by client
-      // new_s : connected client socket
-      // buf : buffer to store received data
-      // sizeof(buf): maximum bytes received
-      // 0 : no special options
-      
-      fputs(buf, stdout);  // Display received message on server screen
+     * Bind socket to server address and port
+     */
+
+    if ((bind(s, (struct sockaddr *)&sin, sizeof(sin))) < 0)
+    {
+        // Associate socket with IP address and port
+        perror("simplex-talk: bind");
+
+        // Display binding error
+        exit(1);
+
+        // Terminate program if binding fails
     }
-      
+
     /*
-    * Close client connection
-    */
-    close(new_s);
-    // Close the client socket after communication ends
-  }
+     * Put server socket into listening mode
+     */
+
+    listen(s, MAX_PENDING);
+
+    // Server waits for incoming client connection requests
+    // MAX_PENDING = maximum number of waiting clients
+
+    /*
+     * Main server loop
+     * Wait for client connection,
+     * receive data and display it
+     */
+
+    while (1)
+    {
+        len = sizeof(sin);
+
+        // Store size of client address structure
+
+        /*
+         * Accept a client connection
+         */
+
+        if ((new_s = accept(
+            s,
+            (struct sockaddr *)&sin,
+            &len)) < 0)
+        {
+            // accept() creates a new socket for communication
+            // with the connected client
+
+            perror("simplex-talk: accept");
+
+            // Display accept error
+            exit(1);
+
+            // Terminate program
+        }
+
+        /*
+         * Receive data from client
+         */
+
+        while (len = recv(new_s, buf, sizeof(buf), 0))
+        {
+            // recv() receives data sent by client
+            //
+            // new_s : connected client socket
+            // buf : buffer to store received data
+            // sizeof(buf): maximum bytes received
+            // 0 : no special options
+
+            fputs(buf, stdout);
+
+            // Display received message on server screen
+        }
+
+        /*
+         * Close client connection
+         */
+
+        close(new_s);
+
+        // Close the client socket after communication ends
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
