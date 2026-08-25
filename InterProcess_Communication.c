@@ -13,6 +13,26 @@
 // 1. FIFO's (Named Pipes)
 // 2. Message Queues
 // 3. Shared Memory & Semaphores
+
+// 2. Message Queues
+// Unlike FIFOs, which act as a continuous stream of raw bytes, Message Queues allow processes to exchange discrete,
+// formatted packets of data called "messages."
+// How it works: The kernel maintains a linked list of messages identified by a unique queue ID. Processes can attach to this
+// queue to drop off or pick up messages.
+// Data Flow: Each message is defined by a user-created struct that includes a specific Message Type (an integer) and the
+// message payload.
+// Synchronization: Message Queues are highly flexible because they allow asynchronous communication. A sender can drop
+// off a message and immediately continue its work without waiting for the receiver. Additionally, receivers can filter the queue
+// by requesting only messages of a specific "Type," leaving other messages in the queue untouched.
+
+#include <sys/ipc.h>
+#include <sys/msg.h>
+
+key = ftok("progfile", 65); // ftok to generate unique key
+msgid = msgget(key, 0666 | IPC_CREAT); // msgget creates a message queue and returns identifier
+msgsnd(msgid, &message, sizeof(message), 0); // msgsnd to send message
+msgrcv(msgid, &message, sizeof(message), 1, 0); // msgrcv to receive message
+msgctl(msgid, IPC_RMID, NULL); // msgctl to destroy the message queue
   
 // 1. FIFOs (Named Pipes)
 // A standard pipe provides a unidirectional (one-way) stream of data between two related processes (like a parent and child). A
