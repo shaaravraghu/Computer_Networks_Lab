@@ -1,0 +1,101 @@
+Transport Layer Expectations:
+Deliver correct data to the correct application process
+Ensure reliability
+Multiplexing and Demultiplexing
+Prevent overloading the receiver-(called as Flow control)
+Do segmentation and reassembly
+Prevent overloading the network-(called as a congestion control)
+
+Motivation of reliable transfer:
+Packets can get:
+– Lost 
+– Corrupted 
+– Reordered
+– Delayed 
+– Duplicated
+
+Transport Layer Actions
+Sender:
+ is passed an application-layer message
+ determines segment header fields values
+ creates segment
+ passes segment to IP
+
+Receiver:
+ receives segment from IP
+ checks header values
+ extracts application-layer message
+ demultiplexes message up to application via socket
+
+Best effort service model (it does not guarantee segment delivery, it does not guarantee orderly delivery of segments, and it does not guarantee the integrity of the data in the segments.)
+
+Principles of Reliable Data Transfer
+No transferred data bits are corrupted (flipped from 0 to 1, or vice versa) or lost, and all are delivered in the order in which they were sent
+
+Mechanisms for RDT (reliable data transfer)
+ Checksum - Used to detect bit errors in a transmitted packet
+ Sequence number - allows the receiver to detect duplicate copies of a packet
+ Acknowledgment - tells the sender that a packet or set of packets has been received correctly
+ Negative acknowledgment - the sequence number of the packet that was not received correctly
+
+RDT 1.0
+- Perfectly reliable channel
+- No errors/loss
+- No ACK, NAK, sequence number, retransmission
+
+RDT 2.0
+- Handles bit corruption
+- Checksum
+- ACK / NAK
+- Retransmit on NAK
+- No sequence numbers
+- Problem: ACK/NAK can be corrupted
+
+RDT 2.1
+- Handles corrupted ACK/NAK
+- Adds 0/1 sequence numbers
+- Detects duplicates
+- Retransmits when needed
+
+RDT 2.2
+- No NAK
+- ACK only
+- Duplicate ACK = retransmission signal
+- Uses 0/1 sequence numbers
+
+TCP
+- Reliable, ordered byte-stream
+- Connection-oriented
+- Sequence numbers = first byte in segment
+- ACK number = NEXT byte expected
+- Cumulative ACKs
+- Checksum + timeout/fast retransmit
+- Retransmits lost data
+- Sequence/ACK numbers count BYTES, not packets
+
+Other benefit of TCP:
+- Multiplexing/ Demultiplexing
+- Flow Control
+- Error Control
+- Congestion Control
+- Full Duplex
+
+MULTIPLEXING / DEMULTIPLEXING
+1. CONNECTIONLESS MULTIPLEXING (UDP)
+- Multiple applications send data through UDP.
+- UDP adds source and destination port numbers to each segment.
+- Segments are sent independently without establishing a connection.
+2. CONNECTIONLESS DEMULTIPLEXING (UDP)
+- UDP uses the destination port number to deliver a segment to the correct socket/application.
+- Segments with the same destination port are delivered to the same socket, regardless of sender.
+3. CONNECTION-ORIENTED MULTIPLEXING (TCP)
+- Multiple applications can use TCP simultaneously.
+- TCP identifies each connection using a 4-tuple:
+  (Source IP, Source Port, Destination IP, Destination Port).
+4. CONNECTION-ORIENTED DEMULTIPLEXING (TCP)
+- TCP uses the 4-tuple to identify the correct connection/socket.
+  (Source IP, Source Port, Destination IP, Destination Port).
+- Incoming segments are delivered to the process associated with that connection.
+KEY DIFFERENCE:
+UDP → Demultiplexing mainly uses destination port.
+TCP → Demultiplexing uses source IP + source port + destination IP + destination port.
