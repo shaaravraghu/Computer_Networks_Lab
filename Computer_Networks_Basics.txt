@@ -137,3 +137,13 @@ Line Coding: Converting digital data to digital signals
 Transmission Medium:
 Guided Transmission Medium (Copper Cable, Shielded Twisted Coaxial Cable, Unshielded Twisted Coaxial Cable and Optical Fibre)
 Unguided Transmission Medium (EM (Radio) Waves)
+
+Network Performance
+f(delay, loss, throughput)
+Packet Delay:
+1. Link Properties (Transmission and Propagation Delay)
+2. Traffic and Switch Issues (Processing and  Queueing Delay)
+d - delay 
+d (nodal) = d (trans) + d (prop) + d (proc) + d (queue)
+d (trans) = size of packet/ bandwidth (network speed)
+d (prop) = host-to-host distance (link length)/ speed in medium
