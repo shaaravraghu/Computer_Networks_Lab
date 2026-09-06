@@ -1,0 +1,113 @@
+Brief History:
+1969 - ARPANET
+1973 - TCP/ICP
+1983 - ARPANET switches to TCP/ ICP
+1989 - WWW @CERN
+1991 onwards - commercialisation of the web
+2000 onwards - broadband and mobile internet
+2010 onwards - cloud computing, IoT and social media
+2020 onwards - 5G, AI and metaverse
+
+Major Goals of the Internet
+– Efficient (in terms of Delay and cost)
+– Robust (towards failures or errors)
+– Scalable (with more users and data)
+
+Key Concepts and Problems
+Naming, Layering, Routing, Reliability, Sharing
+– How do you address computers, services, protocols?
+– How do you manage complexity? (instead of handling everything together - divide into layers)
+– How do you go from A to B?
+– How do you communicate reliably using unreliable mediums?
+– How do you divide scarce resources among competing parties? (how to use/ share public resources freely and efficiently)
+
+Advantages of Layering:
+Modular design – Explicit structures allows identification, relationship of complex systems
+Software reuse – Upper layers can share lower layers functionality (HTTP and SMTP can be use TCP)
+Abstraction of Implementation – Can change specific parts of implementation as long as interface kept same
+
+Network Topologies:
+1. Bus Topology – All devices are connected to a single shared backbone cable. Data travels along the cable, making it simple and inexpensive but a backbone failure can affect the entire network.
+2. Star Topology – All devices are connected to a central hub/switch. It is easy to manage and troubleshoot, but failure of the central device can bring down the network.
+3. Ring Topology – Each device is connected to two neighboring devices, forming a closed loop. Data travels around the ring, but failure of a link/device can disrupt the network.
+4. Mesh Topology – Devices are connected to many or all other devices, providing multiple paths for data. It is highly reliable but expensive and complex to install.
+5. Hybrid Topology – Combines two or more different topologies, such as star-bus or star-ring. It offers flexibility and scalability but is more complex and costly.
+
+Categories of Network:
+LAN – Local Area Network covering a small area like a room, building, or campus.
+MAN – Metropolitan Area Network covering a city or large metropolitan area.
+WAN – Wide Area Network covering large geographical areas such as countries or continents.
+
+Protocols - set of rules that govern data communication (syntax: structure/ format/ order of data, semantics: meaning of each section, timing)
+OSI (Open Systems Interconnection) - defined by ISO (International Standardisation Organisation)
+
+OSI MODEL – 7 LAYERS
+7. Application   – Provides network services directly to end-user applications.
+6. Presentation  – Handles data translation, encryption/decryption, and compression.
+5. Session       – Establishes, manages, and terminates communication sessions.
+4. Transport     – Provides end-to-end delivery, reliability, flow control, and segmentation.
+3. Network       – Handles logical addressing and routing of packets between networks.
+2. Data Link     – Provides node-to-node/ hop-to-hop (linked list) delivery, framing, MAC addressing, and error detection.
+1. Physical      – Transmits raw bits over the physical communication medium.
+
+Mnemonic (Top → Bottom):
+All People Seem To Need Data Processing
+Mnemonic (Bottom → Top):
+Please Do Not Throw Sausage Pizza Away
+
+Physical Layer
+Characteristics of interfaces, medium and defines the type of the medium.
+Representation of bits (Stream of bits/sequence of 0s or 1s)
+Defines the type of encoding
+Data rate: The transmission rate-the number of bits sent each second
+Synchronization of bits: Sender and receiver clocks must be synchronised.
+Line configuration (Connection Type: Point-to-point/ Multi-point)
+Physical topology
+Type of Transmission Modes (Wired/ Wireless)
+
+Data Link Layer
+Framing: The data link layer divides the stream of bits received from the network layer into manageable data units called frames (Header + Data (Bit Stream) + Tail).
+Physical addressing
+Flow control
+Error control: Mechanisms to detect and retransmit damaged or lost frames. Uses a mechanism to recognize duplicate frames.
+Access control: Data link layer protocols are necessary to determine which device has control over the link.
+
+Network Layer
+Server Host and Destination (Client) Host Communication
+Logical Addressing
+Routing
+Internetworking
+
+Transport Layer
+Service-point addressing: Network layer gets each packet to the correct computer (host-to-host); the transport layer gets the entire message to the correct process (using Port Address): port-to-port
+Segmentation and reassembly: A message is divided into transmittable segments, with each segment containing a sequence number.
+Connection control (Connection Oriented Transmission and Connectionless Transmission)
+Flow control
+Error control
+
+Session Layer
+It establishes, maintains, synchronises and terminates the interaction among the devices (during sessions).
+Dialog control: It allows the communication between two processes to take place.
+- half-duplex (one way at a time) mode
+- full-duplex (two ways at a time) mode
+Synchronization bits in between data (bit stream)
+
+Presentation Layer
+Syntax and Semantics Definition
+Translation
+Compression
+Encryption
+
+Application Layer
+End user application
+Network Virtual Terminal
+File Transfer, Access & Management
+Mail Services
+Directory Services (over the web)
+
+Layers and Interfaces
+Service Interface (between different layers)
+Peer Interface (interaction with peers): RRP (request/ reply protocol), MSP (message stream protocol), HHP (host-to-host protocol)
+
+Encapsulation (adding headers and trailers)
+Decapsulation (removing headers and trailers)
