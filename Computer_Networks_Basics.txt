@@ -71,6 +71,7 @@ Physical addressing
 Flow control
 Error control: Mechanisms to detect and retransmit damaged or lost frames. Uses a mechanism to recognize duplicate frames.
 Access control: Data link layer protocols are necessary to determine which device has control over the link.
+2 layers: LLC (Logical Link Layer) and MAC (Medium Access Control)
 
 Network Layer
 Server Host and Destination (Client) Host Communication
@@ -111,3 +112,20 @@ Peer Interface (interaction with peers): RRP (request/ reply protocol), MSP (mes
 
 Encapsulation (adding headers and trailers)
 Decapsulation (removing headers and trailers)
+
+Types of Addresses:
+Physical Address
+IP Address
+Port Address
+
+Layer-wise Information:
+Data (Session + Presentation + Application), Segments (Transport), Packets (Network), Frames (Data Link), Bits (Physical) 
+
+Packet Switching:
+Pros:
+Effective resource management
+Simpler to implement circuit switching
+Cons:
+Unpredictable Performance
+Requires Buffer Management and Congestion Control
+
