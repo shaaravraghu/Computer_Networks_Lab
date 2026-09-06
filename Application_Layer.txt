@@ -43,3 +43,24 @@ The World Wide Web (WWW)
 Internet as the infrastructure, and the Web as one way to use it
 WWW (Infrastructure: Client(Browser)-Server, Content, Implementation: URL, HTTP)
 
+URL - Uniform Resource Locator
+protocol://hostname[:port]/directory_path/resource
+  |              | 
+HTTP(S)/ FTP/   IP Address/
+SMTP            DNS Name
+
+HTTP
+HTTP is a simple, synchronous request/reply protocol
+HTTP is layered over a bidirectional byte stream, typically TCP 
+HTTP is text-based (ASCII) – human readable, easy to reason about
+HTTP is stateless – it maintains no info about past client requests
+Based on Client-Server Model
+Methods: GET (pull data) and POST (push data)
+
+HTTP Response Messages:
+200 - OK
+301 - Moved Permanently
+401 - Bad Request
+404 - Not Found
+503 - Service Unavailable
+505 - HTTP version not supported
