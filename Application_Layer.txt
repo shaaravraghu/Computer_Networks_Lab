@@ -64,3 +64,36 @@ HTTP Response Messages:
 404 - Not Found
 503 - Service Unavailable
 505 - HTTP version not supported
+
+Cookies
+Hold state of user objects over HTTPS
+
+Web Cache
+Store information rather than repeatedly asking (conditional GET: if in cache)
+reduces traffic and response time and also better content delivery
+
+Proxy Server
+Proxy acts as server to clients and as clients to external servers
+
+Cache Control Headers
+Content Distribution Headers (global network of web caches)
+
+HTTP Non-Persistent Connections
+HTTP Persistent Connections (Operation Types: Pipelined and Non-Pipelined)
+HTTP/2 and HTTP/3
+QUIC: Quick UDP Internet Connection
+
+DNS: Domain Name System
+- maps IP address and names
+- distributed database implemented in hierarchy of name servers
+- application layer protocol
+
+DNS services:
+hostname-to-IP-address translation
+host aliasing
+mail server aliasing
+load distribution
+
+Hierarchical DNS
+Root - Top Level Domain - Directory - Local Level
+Recursive Query creates load (specially at top level); therefore local DNS server is created
