@@ -97,3 +97,60 @@ load distribution
 Hierarchical DNS
 Root - Top Level Domain - Directory - Local Level
 Recursive Query creates load (specially at top level); therefore local DNS server is created
+
+Email (3 major components)
+- Content
+Format: Header/ Content
+Encoding: MIME
+- Infrastructure
+SMTP
+- Retrieval
+POP
+IMAP
+
+SMTP (Small Mail Transfer Protocol) Protocol between mail servers (built on top of TCP)
+3 Phases of SMTP
+- hand-shaking (greeting)
+- transfer of messages
+- closure
+Types of Agents:
+- Mail User Agent (read/ write emails)
+- Mail Submission Agent (process and forward to MTAs)
+- Transmission Agent (queues, receives and sends mail to other MTAs)
+- Message Delivery Agent (deliver mail to mailbox)
+- Retrieval Agent: Fetches email from user mailbox
+- Message Transfer Agent (Proxy for SMTP Protocol)
+
+POP (Post Office Protocol): used to support users with intermittent network connectivity
+3 Phases:
+Authenticate
+Transaction 
+Update
+
+IMAP (Internet Messaging Access Protocol)
+- complete and complex mailbox system (always ON)
+
+Message Format: MIME: Multipurpose Internet Mail Extension
+- Version, Description, ID, Type, Transfer-Encoding
+
+CDNs: Content Delivery Networks
+
+DASH: Dynamic Adaptive Screening over HTTP
+- for streaming multimedia
+
+(constant bit rate server) <- variable network delay (time axis) -> (client video reception) <- client playout delay (time axis) & buffered video (data axis) -> (constant bit rate client)
+
+Socket: Endpoint of Communication
+- UDP (User Datagram Protocol): unreliable datagram
+- TCP (Transfer Protocol): reliable, byte stream-oriented
+Stream Socket: connection-oriented socket
+Datagram socket: connectionless socket
+
+Socket: Create a new connection endpoint
+Bind: Attach a local address to a socket
+Listen: Announce willingness to accept connections
+Accept: Block caller until a connection request arrives
+Connect: Actively attempt to establish a connection
+Send: Send some data over the connection
+Receive: Receive some data over the connection
+Close: Release the connection
