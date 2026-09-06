@@ -129,3 +129,11 @@ Cons:
 Unpredictable Performance
 Requires Buffer Management and Congestion Control
 
+Data and Signals:
+Digital Signal: Information in Discrete States 
+Analog Signal: Information in Continuous Form
+Line Coding: Converting digital data to digital signals
+
+Transmission Medium:
+Guided Transmission Medium (Copper Cable, Shielded Twisted Coaxial Cable, Unshielded Twisted Coaxial Cable and Optical Fibre)
+Unguided Transmission Medium (EM (Radio) Waves)
