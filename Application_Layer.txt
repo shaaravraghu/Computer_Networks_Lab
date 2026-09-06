@@ -1,0 +1,45 @@
+Client-Server Architecture:
+Server:
+▪ always-on host
+▪ permanent IP address
+▪ often in data centers, for scaling
+Clients:
+▪ contact, communicate with server
+▪ may be intermittently connected
+▪ may have dynamic IP addresses
+▪ do not communicate directly with each other
+
+Peer-to-Peer Architecture:
+▪ no always-on server
+▪ arbitrary end systems directly communicate
+▪ peers request service from other peers, provide service in return to other peers
+▪ self scalability– new peers bring new service capacity, as well as new service demands
+▪ peers are intermittently connected and change IP addresses
+▪ complex management
+
+Process Communication
+process: program running within a host
+- within same host, two processes communicate using inter-process communication (defined by OS)
+- processes in different hosts communicate by exchanging messages
+client process: process that initiates communication
+server process: process that waits to be contacted
+
+What is needed from transport layer?
+- data integrity
+- timing
+- throughput
+- security
+
+Application layer defines:
+- types of messages exchanged
+- message semantics and syntax
+- rules
+- open protocols and proprietary protocols
+
+Internet v/s WWW
+The World Wide Web (WWW)
+– a distributed database of “pages” linked together via the Hypertext Transport Protocol (HTTP)
+– World Wide Web is a collection of websites and web pages that are accessed via the Internet using web browsers
+Internet as the infrastructure, and the Web as one way to use it
+WWW (Infrastructure: Client(Browser)-Server, Content, Implementation: URL, HTTP)
+
