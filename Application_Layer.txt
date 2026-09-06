@@ -49,13 +49,16 @@ protocol://hostname[:port]/directory_path/resource
 HTTP(S)/ FTP/   IP Address/
 SMTP            DNS Name
 
-HTTP
+HTTP (HyperText Transfer Protocol)
 HTTP is a simple, synchronous request/reply protocol
 HTTP is layered over a bidirectional byte stream, typically TCP 
 HTTP is text-based (ASCII) – human readable, easy to reason about
 HTTP is stateless – it maintains no info about past client requests
 Based on Client-Server Model
 Methods: GET (pull data) and POST (push data)
+HTML (HyperText Markup Language)
+
+Multi-Threaded (Parallel) Servers and Connections (Persistency)
 
 HTTP Response Messages:
 200 - OK
@@ -86,7 +89,11 @@ QUIC: Quick UDP Internet Connection
 DNS: Domain Name System
 - maps IP address and names
 - distributed database implemented in hierarchy of name servers
+- domain refers to entire subtree and zone refers to the administrative section of it
 - application layer protocol
+
+Domain Resource Records: associated with domain
+A, AAAA, TXT, MX, PTR, NS, CNAME
 
 DNS services:
 hostname-to-IP-address translation
@@ -97,6 +104,10 @@ load distribution
 Hierarchical DNS
 Root - Top Level Domain - Directory - Local Level
 Recursive Query creates load (specially at top level); therefore local DNS server is created
+
+TLDs:
+Internet Corporation for Assigned Names and Numbers (ICANN)
+com, org, net, gov, ac, edu, in, us, uk, au, sg
 
 Email (3 major components)
 - Content
@@ -139,6 +150,14 @@ DASH: Dynamic Adaptive Screening over HTTP
 - for streaming multimedia
 
 (constant bit rate server) <- variable network delay (time axis) -> (client video reception) <- client playout delay (time axis) & buffered video (data axis) -> (constant bit rate client)
+
+FTP (File Transfer Protocol)
+- Active Mode: server chooses port and client establishes TCP
+- Passive Mode: server selects a random port
+Data transfer modes:
+- Stream mode: continuous stream of data
+- Block mode: sent in blocks
+- Compressed mode: certain algorithms
 
 Socket: Endpoint of Communication
 - UDP (User Datagram Protocol): unreliable datagram
