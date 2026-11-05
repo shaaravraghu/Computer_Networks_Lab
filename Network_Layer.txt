@@ -43,3 +43,9 @@ At Destination:
 2. Delivering the datagram to the upper layer
 3. Decapsulating the packet
 4. Extracting the original data
+
+Forwarding v/s Routing
+- direct packet (from sender) to outgoing link | define whole path
+- local scope | global scope
+- hardware implementation | software implementation
+- nano seconds | milliseconds
