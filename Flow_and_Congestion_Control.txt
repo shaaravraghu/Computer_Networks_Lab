@@ -1,0 +1,20 @@
+Reason for Congestion:
+1. Excessive Traffic Load (exceeds link capacity)
+2. Bursty Traffic Patterns (sudden bursts can overwhelm buffers)
+3. Insufficient Buffering/ Slow Processing at Routing/ Switches
+4. Re-Transmission Overhead (consecutive messages in a system with duplicate messages and failing (to-be resent) messages)
+5. Bottleneck Links (links in between with less broadband wrt rest of network)
+6. Unfair Bandwidth Sharing with multiple connections
+7. Competition for Resources
+
+Consequences of Congestion:
+1. Delayed Response (Sometimes Duplicate Send ocuurs because of acknowledgement failure)
+2. Packet Loss 
+
+Flow Control v/s Congestion Control:
+- Prevents receiver buffer from being overwhelmed | network (routers & links) from being overwhelmed
+- point-to-point problem | end-to-end network wide problem
+- receiver window (rwnd) - advertised by receiver | congestion window (cwnd) - maintained at sender
+- data link and transport layer | network and transport layer
+- sliding window protocol | TCP, Tahoe, CUBIC, BBR, Reno
+- at max prevents one sender | can prevent multiple senders
