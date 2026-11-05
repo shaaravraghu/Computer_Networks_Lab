@@ -25,3 +25,21 @@ Service Model Implementation:
 3. ICMP Protocol: Error Reporting and Host Signalling
 4. Forwarding Table (port to assign)
 
+Services by Network Layer:
+
+At Source:
+1. Packetizing
+2. Finding the logical address of the next hop
+3. Finding the physical (MAC) address of the next hop
+4. Fragmenting the datagram (if necessary)
+
+At Router:
+1. Finding the logical address of the next hop
+2. Finding the physical (MAC) address of the next hop
+3. Fragmenting the datagram (if necessary)
+
+At Destination:
+1. Reassembling the fragmented datagram (if necessary)
+2. Delivering the datagram to the upper layer
+3. Decapsulating the packet
+4. Extracting the original data
