@@ -10,6 +10,8 @@ Reason for Congestion:
 Consequences of Congestion:
 1. Delayed Response (Sometimes Duplicate Send ocuurs because of acknowledgement failure)
 2. Packet Loss 
+3. Reduced Throughput
+4. Poor Goodput (important necessary info)
 
 Flow Control v/s Congestion Control:
 - Prevents receiver buffer from being overwhelmed | network (routers & links) from being overwhelmed
@@ -18,3 +20,13 @@ Flow Control v/s Congestion Control:
 - data link and transport layer | network and transport layer
 - sliding window protocol | TCP, Tahoe, CUBIC, BBR, Reno
 - at max prevents one sender | can prevent multiple senders
+
+Reasons for Retransmission:
+1. Packet Loss
+2. Acknowledgement Loss lead to duplicates (slow arrival of acknowledgement/ acknowledgement failure)
+
+Approach towards congestion control:
+1. End-to-end Congestion Control: congestion inferred from observed delays/ loss
+2. Network Assisted Congestion Control: direct feedback to sender and receiver
+
+Sender Window = min(CWND, RWND)
