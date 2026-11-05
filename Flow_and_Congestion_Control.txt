@@ -30,3 +30,37 @@ Approach towards congestion control:
 2. Network Assisted Congestion Control: direct feedback to sender and receiver
 
 Sender Window = min(CWND, RWND)
+
+3 Problems in Congestion Control:
+1. Bandwidth Estimation (bandwidth of bottleneck)
+2. Bandwidth Adaptation (variation of bottleneck)
+3. Fairness
+
+2 components to congestion: detecting and reacting
+
+3 ways to detect congestion:
+1. signal lost
+2. signal noisy
+3. packet loss
+
+Detecting Losses:
+- Mild Congestion: duplicate acknowledgements
+- Heavy Congestion: timeout
+
+How to Estimate?
+- Gradual increase when not congested; and rapid decrease when congested
+- Slow start and exponential increase
+- Small Estimate: under-utilisation; Large Estimation: congestion
+
+Adaptation?
+- AIMD, AIAD, MIAD, MIMD
+- A: additive; M: multiplicative; I: increase; D: decrease
+- exponentiation until 1/2 of CWND is reached followed by AIMD (fast recovery mechanism)
+- Fast Re-transmit
+
+TCP Versions: 
+- Tahoe → Slow Start, Congestion Avoidance, Fast Retransmit (no Fast Recovery)
+- Reno → Adds Fast Recovery (but poor with multiple losses)
+- NewReno → Better Fast Recovery (handles multiple losses)
+- SACK TCP → Selective Acknowledgments, best in multiple loss recovery
+- CUBIC, BBR (modern Linux) → Advanced algorithms for high-speed networks.
