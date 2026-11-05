@@ -1,0 +1,27 @@
+Network Layer Services:
+1. Logical Addressing: host-to-host delivery and routing
+2. Routing: create a forwarding table
+3. Forwarding: sending to next hop
+4. Fragmentation and Reassembly
+5. Error Handling and Diagnostics: ICMP ()Internet Control Message Protocol)
+6. Quality of Service (QoS)
+
+Internetworking:
+- Scenarios:
+1. Single LAN
+2. LAN-LAN
+3. LAN-WAN
+4. LAN-WAN-LAN
+- Devices:
+1. Hubs
+2. Bridges
+3. Switches
+4. Routers
+5. Gateways
+
+Service Model Implementation:
+1. IP Protocol: Packet Formatting and Addressing
+2. Routing Protocol: RIP, OSPF, BGP (determine path)
+3. ICMP Protocol: Error Reporting and Host Signalling
+4. Forwarding Table (port to assign)
+
