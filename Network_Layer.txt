@@ -49,3 +49,15 @@ Forwarding v/s Routing
 - local scope | global scope
 - hardware implementation | software implementation
 - nano seconds | milliseconds
+
+Routing Algorithms Classification
+- Global (all routers have complete topology) and Decentralised (neighbour nodes are defined with cost known)
+- Static (change slowly over time after several front and back) and Dynamic (change frequently: periodic and as per link cost change)
+
+Features of Routing Algorithms:
+- Correctness: always produce loop-free, valid routes
+- Optimality: shortest / least-cost path based on the chosen metric
+- Minimal Overhead: Lower computation and storage overhead
+- Robustness (Fault Tolerance): Should handle link/node failures
+- Stability: Converges to a stable state quickly after updates
+- Scalable: Handle a large number of nodes
