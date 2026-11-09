@@ -57,7 +57,7 @@ Forwarding v/s Routing
 - nano seconds | milliseconds
 
 Routing Algorithms Classification
-- Global (all routers have complete topology) and Decentralised (neighbour nodes are defined with cost known)
+- Global (all routers have complete topology; USES 'LINK-STATE': RIP (ROUTING INFORMATION PROTOCOL)) and Decentralised (neighbour nodes are defined with cost known; USES 'DISTANCE-VECTOR': OSPF (OPEN SHORTEST PATH FIRST))
 - Static (change slowly over time after several front and back) and Dynamic (change frequently: periodic and as per link cost change)
 
 Features of Routing Algorithms:
@@ -67,3 +67,16 @@ Features of Routing Algorithms:
 - Robustness (Fault Tolerance): Should handle link/node failures
 - Stability: Converges to a stable state quickly after updates
 - Scalable: Handle a large number of nodes
+
+Intra and Inter-Domain Routing
+- An internet can be so large that one routing protocol cannot handle the task of updating the routing tables of all routers. So, an internet is divided into autonomous systems.
+- An autonomous system (AS) is a group of networks and routers under the authority of a single administration.
+- Routing inside an autonomous system is referred to as intra-domain routing.
+- Routing between autonomous systems is referred to as inter-domain routing.
+
+Cost Metrics:
+- Hop Count: Number of router between source and destination
+- Bandwidth: prefer path with higher bandwidth
+- Delay (Latency): used in EIGRP (Enhanced Interior Gateway Routing Protocol)
+- Load
+- Reliability: historical link stability (failure rate & error rate)
