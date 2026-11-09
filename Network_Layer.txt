@@ -94,3 +94,13 @@ Easy to configure and administer | Difficult to configure and administer
 Consumes lot of bandwidth | Consumes less bandwidth
 Passes copies of routing table to neighbouring routers | Passes link-states routing updates to other routers
 
+IP Address:
+- Address designated to every device on the internet.
+- 2^32 binary space separated into 4 bytes (octet configurations)
+- Classful Addressing: placed into classes to identify class of address
+- Class A: Net ID (1) and Host ID (3); Class B: Net ID (2) and Host ID (2); Class C: Net ID (3) and Host ID (1); Class D: Multicast Address; Class E: Reserved for future use;
+- Network Mask: routers in the internet normally use an algorithm to extract a network address from destination address of the packet. 'n' leftmost bits are set to 1 and the remaining '32-n' are set to 0. Network masks have a block size of 2^(32-n). 
+- In classless addressing, there isn't any fixed number of bits for net id and a slash notation is used to provide the value 'n'.
+- Total number of addresses = 2^(32-n); First address starts from the first plausible value of mask with the block size (adding till the last address)
+- Subnetting (Three level addressing): network portion; subnetwork portion; host portion
+- Number of 1s represent Network and Subnet ID and 0s represent Host ID; unlike classful masking, subnet masks are needed to identify subnetwork.
