@@ -80,3 +80,17 @@ Cost Metrics:
 - Delay (Latency): used in EIGRP (Enhanced Interior Gateway Routing Protocol)
 - Load
 - Reliability: historical link stability (failure rate & error rate)
+
+Routing Information Protocol (RIP): to be noted 
+Open Shortest Path First (OSPF): to be noted
+
+Distance-Vector v/s Link-State
+Bellman-Ford Algorithm | Dijkstra Algorithm
+View network through perspective of neighbour | Common view of entire network topology
+Frequent and periodic updates | Triggered updates
+Slower convergence | Faster convergence
+Susceptible to routing loops | Not susceptible to routing loops
+Easy to configure and administer | Difficult to configure and administer
+Consumes lot of bandwidth | Consumes less bandwidth
+Passes copies of routing table to neighbouring routers | Passes link-states routing updates to other routers
+
