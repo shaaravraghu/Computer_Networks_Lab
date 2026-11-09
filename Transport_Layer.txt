@@ -63,6 +63,14 @@ RDT 2.2
 - Duplicate ACK = retransmission signal
 - Uses 0/1 sequence numbers
 
+FSM (Finite State Machine) for RDT users: States, Events, Transitions, Actions
+
+Mechanisms for RDT:
+1. Checksum
+2. Sequence Number
+3. Acknowledgement
+4. Negative Acknowledgement
+
 TCP
 - Reliable, ordered byte-stream
 - Connection-oriented
@@ -99,3 +107,8 @@ MULTIPLEXING / DEMULTIPLEXING
 KEY DIFFERENCE:
 UDP → Demultiplexing mainly uses destination port.
 TCP → Demultiplexing uses source IP + source port + destination IP + destination port.
+
+Addressing using port numbers:
+- To define processes, we need a secondary address (0 - 65,535); IANA: Internet Assigned Number Authority
+- Port numbers by ranges: well-known (0-1023; controlled by IANA), registered (1024-49151; registered with IANA) and dynamic (or private)
+- Client programs generally run over a registered port called ephemeral port number.
