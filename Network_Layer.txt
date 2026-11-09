@@ -3,8 +3,8 @@ Network Layer Services:
 2. Routing: create a forwarding table
 3. Forwarding: sending to next hop
 4. Fragmentation and Reassembly
-5. Error Handling and Diagnostics: ICMP ()Internet Control Message Protocol)
-6. Quality of Service (QoS)
+5. Error Handling and Diagnostics: ICMP (Internet Control Message Protocol) - destination unreachable/ time exceeded
+6. Quality of Service (QoS): priority provided to certain packets
 
 Internetworking:
 - Scenarios:
@@ -18,6 +18,12 @@ Internetworking:
 3. Switches
 4. Routers
 5. Gateways
+
+Best Effort Service Model:
+No guarantees on:
+– successful datagram delivery to destination
+– timing or order of delivery
+– bandwidth available to end-end flow
 
 Service Model Implementation:
 1. IP Protocol: Packet Formatting and Addressing
