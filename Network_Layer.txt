@@ -104,3 +104,34 @@ IP Address:
 - Total number of addresses = 2^(32-n); First address starts from the first plausible value of mask with the block size (adding till the last address)
 - Subnetting (Three level addressing): network portion; subnetwork portion; host portion
 - Number of 1s represent Network and Subnet ID and 0s represent Host ID; unlike classful masking, subnet masks are needed to identify subnetwork.
+
+SPECIAL IPv4 ADDRESSES
+1. Network Address
+   Network ID: Specific
+   Host ID: All 0s
+   Usage: None
+2. Direct Broadcast Address
+   Network ID: Specific
+   Host ID: All 1s
+   Usage: Destination
+3. Limited Broadcast Address
+   Network ID: All 1s
+   Host ID: All 1s
+   Usage: Destination
+4. This Host on This Network
+   Network ID: All 0s
+   Host ID: All 0s
+   Usage: Source
+5. Specific Host on This Network
+   Network ID: All 0s
+   Host ID: Specific
+   Usage: Destination
+6. Loopback Address
+   Network ID: 127
+   Host ID: Any
+   Usage: Destination
+
+Private Addresses
+Class A: 10.0.0.0 - 10.255.255.255
+Class B: 172.16.0.0 - 172.31.255.255
+Class C: 192.168.0.0 - 192.168.255.255
